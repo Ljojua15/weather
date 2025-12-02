@@ -12,7 +12,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "weather",
       "architect": {
         "build": {
           "builder": "@angular/build:application",
@@ -94,5 +94,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "22107e2e-f8eb-4ec8-932d-9bbf08728c7b"
   }
 }
