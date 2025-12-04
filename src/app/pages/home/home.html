@@ -1,1 +1,8 @@
-<p>home works!</p>
+<weather-home-change (handleActiveTab)="handleActiveTab($event)" />
+<div class="bg-color">
+  @if (activeTab() === EChangeTab.WEATHER) {
+    <weather-home-weather />
+  } @else {
+    <weather-home-currency />
+  }
+</div>

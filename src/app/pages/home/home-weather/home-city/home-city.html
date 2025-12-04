@@ -1,1 +1,60 @@
-<p>home-city works!</p>
+<div class="weather-card rounded-2xl p-6 lg:p-8 mb-8">
+  <div class="flex flex-col lg:flex-row items-center lg:items-start justify-between">
+    <div class="text-center lg:text-left mb-6 lg:mb-0">
+      <h2 class="text-2xl lg:text-3xl font-semibold mb-2">New York City</h2>
+      <p class="text-gray-400 mb-4">Partly Cloudy</p>
+      <div class="flex items-center justify-center lg:justify-start mb-4">
+        <div class="w-16 h-16 flex items-center justify-center bg-gray-800 rounded-full mr-4">
+          <i class="ri-sun-cloudy-line text-3xl text-primary"></i>
+        </div>
+        <span class="text-5xl lg:text-6xl font-light">23°C</span>
+      </div>
+      <p class="text-gray-300">Feels like 26°C</p>
+    </div>
+    <!-- Weather Metrics -->
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 w-full lg:w-auto lg:min-w-96">
+      <div class="bg-gray-800 rounded-lg p-4 text-center">
+        <div class="w-8 h-8 flex items-center justify-center mx-auto mb-2">
+          <i class="ri-drop-line text-primary"></i>
+        </div>
+        <p class="text-sm text-gray-400">Humidity</p>
+        <p class="text-lg font-semibold">65%</p>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 text-center">
+        <div class="w-8 h-8 flex items-center justify-center mx-auto mb-2">
+          <i class="ri-windy-line text-primary"></i>
+        </div>
+        <p class="text-sm text-gray-400">Wind</p>
+        <p class="text-lg font-semibold">12 km/h</p>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 text-center">
+        <div class="w-8 h-8 flex items-center justify-center mx-auto mb-2">
+          <i class="ri-rainy-line text-primary"></i>
+        </div>
+        <p class="text-sm text-gray-400">Rain</p>
+        <p class="text-lg font-semibold">15%</p>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 text-center">
+        <div class="w-8 h-8 flex items-center justify-center mx-auto mb-2">
+          <i class="ri-eye-line text-primary"></i>
+        </div>
+        <p class="text-sm text-gray-400">Visibility</p>
+        <p class="text-lg font-semibold">10 km</p>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 text-center">
+        <div class="w-8 h-8 flex items-center justify-center mx-auto mb-2">
+          <i class="ri-sun-line text-primary"></i>
+        </div>
+        <p class="text-sm text-gray-400">UV Index</p>
+        <p class="text-lg font-semibold">6</p>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 text-center">
+        <div class="w-8 h-8 flex items-center justify-center mx-auto mb-2">
+          <i class="ri-dashboard-line text-primary"></i>
+        </div>
+        <p class="text-sm text-gray-400">Pressure</p>
+        <p class="text-lg font-semibold">1013 hPa</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,67 +1,111 @@
+:where([class^='ri-'])::before {
+  content: '\f3c2';
+}
+
 body {
   font-family: 'Inter', sans-serif;
 }
+
+/* Skeleton Loader */
 .skeleton {
   background: linear-gradient(90deg, #2a2a2a 25%, #3a3a3a 50%, #2a2a2a 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
 }
+
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
+
+/* Neon Glow */
 .neon-glow {
   box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
 }
+
+/* Chart Card */
 .chart-container {
   background: #1a1a1a;
   border-radius: 12px;
 }
+
+/* Weather Card */
 .weather-card {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a1a2a 100%);
   border: 1px solid #333;
   transition: all 0.3s ease;
 }
+
 .weather-card:hover {
   border-color: #00d4ff;
   box-shadow: 0 8px 32px rgba(0, 212, 255, 0.15);
 }
+
+/* Currency Card */
 .currency-card {
   background: #1a1a1a;
   border: 1px solid #333;
   transition: all 0.3s ease;
 }
+
 .currency-card:hover {
   border-color: #00d4ff;
   transform: translateY(-2px);
 }
+
+/* Mobile Menu */
 .mobile-menu {
   transform: translateX(-100%);
   transition: transform 0.3s ease;
 }
+
 .mobile-menu.active {
   transform: translateX(0);
 }
+
+/* Fade-in animation */
 .fade-in {
   animation: fadeIn 0.5s ease-in-out;
 }
+
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
+/* Hide scrollbars */
 .scroll-container {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
+
 .scroll-container::-webkit-scrollbar {
   display: none;
 }
-input:focus, select:focus, button:focus {
+
+/* Focus outline */
+input:focus,
+select:focus,
+button:focus {
   outline: 2px solid #00d4ff;
   outline-offset: 2px;
 }
+
+/* Reduced-motion support */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

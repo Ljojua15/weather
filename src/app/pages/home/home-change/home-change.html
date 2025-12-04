@@ -1,0 +1,28 @@
+<div class="bg-gray-900 border-b border-gray-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-center py-4">
+      <div class="flex bg-gray-800 rounded-full p-1">
+        <button
+          (click)="changeTab(EChangeTab.WEATHER)"
+          [ngClass]="{
+            'active-change': activeTab() === EChangeTab.WEATHER,
+          }"
+          id="weather-tab"
+          class="px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 text-gray-400 hover:text-white"
+        >
+          Weather
+        </button>
+        <button
+          (click)="changeTab(EChangeTab.CURRENCY)"
+          [ngClass]="{
+            'active-change': activeTab() === EChangeTab.CURRENCY,
+          }"
+          id="currency-tab"
+          class="px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 text-gray-400 hover:text-white"
+        >
+          Currency
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
