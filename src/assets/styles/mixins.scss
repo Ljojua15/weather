@@ -1,0 +1,65 @@
+@mixin flex($align:center, $justify:center, $direction:row) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
+
+@mixin mobile {
+  @media screen and (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin overlay() {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+@mixin page-overlay() {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+@mixin bg-image($image-path) {
+  background-image: url($image-path);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@mixin withOutScroll() {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@mixin fullSize() {
+  width: 100%;
+  height: 100%;
+}
+@mixin overlay() {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}

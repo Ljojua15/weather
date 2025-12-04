@@ -1,5 +1,6 @@
 @use 'assets/styles/reset';
 @use 'assets/styles/design';
+@use 'assets/styles/mixins';
 
 .active{
   color: red;
