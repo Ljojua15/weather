@@ -1,1 +1,43 @@
-<p>home-converter works!</p>
+<div class="currency-card rounded-2xl p-6 lg:p-8 mb-8 ">
+  <h2 class="text-2xl font-semibold mb-6">Currency Converter</h2>
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-end">
+    <!-- From Currency -->
+    <div>
+      <label class="block text-sm font-medium text-gray-400 mb-2">From</label>
+      <div class="relative">
+        <select class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-primary transition-colors pr-10">
+          <option value="USD">🇺🇸 USD - US Dollar</option>
+          <option value="EUR">🇪🇺 EUR - Euro</option>
+          <option value="GBP">🇬🇧 GBP - British Pound</option>
+          <option value="JPY">🇯🇵 JPY - Japanese Yen</option>
+          <option value="CAD">🇨🇦 CAD - Canadian Dollar</option>
+        </select>
+      </div>
+      <input type="number" id="from-amount" value="1000" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white mt-2 focus:border-primary transition-colors">
+    </div>
+    <!-- Swap Button -->
+    <div class="flex justify-center">
+      <button id="swap-currencies" class="w-12 h-12 bg-primary text-black rounded-full flex items-center justify-center hover:bg-opacity-80 transition-all duration-200 !rounded-button whitespace-nowrap">
+        <i class="ri-arrow-left-right-line text-xl"></i>
+      </button>
+    </div>
+    <!-- To Currency -->
+    <div>
+      <label class="block text-sm font-medium text-gray-400 mb-2">To</label>
+      <div class="relative">
+        <select class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-primary transition-colors pr-10">
+          <option value="EUR">🇪🇺 EUR - Euro</option>
+          <option value="USD">🇺🇸 USD - US Dollar</option>
+          <option value="GBP">🇬🇧 GBP - British Pound</option>
+          <option value="JPY">🇯🇵 JPY - Japanese Yen</option>
+          <option value="CAD">🇨🇦 CAD - Canadian Dollar</option>
+        </select>
+      </div>
+      <input type="number" id="to-amount" value="850.75" readonly="" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white mt-2 focus:border-primary transition-colors">
+    </div>
+  </div>
+  <div class="mt-6 p-4 bg-gray-800 rounded-lg">
+    <p class="text-center text-gray-400">1 USD = 0.85075 EUR</p>
+    <p class="text-center text-sm text-gray-500 mt-1">Last updated: 2 minutes ago</p>
+  </div>
+</div>
