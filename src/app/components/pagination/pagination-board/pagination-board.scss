@@ -1,0 +1,27 @@
+.pagination-board {
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #500c0c;
+}
+
+.pagination-board__books {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.pagination-board__books-book {
+  padding: 12px;
+  border-radius: 6px;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.pagination-board__change {
+  display: flex;
+  justify-content: center;
+}

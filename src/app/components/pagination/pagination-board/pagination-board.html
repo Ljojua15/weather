@@ -1,0 +1,20 @@
+<div class="pagination-board">
+  {{ books$ | async }}
+
+  <div class="pagination-board__books">
+    @if (books$ | async; as bookList) {
+      @for (book of bookList; track book.id) {
+        // ან track book.title, ან $index
+        <div class="pagination-board__books-book" style="background-color: red">
+          <p>#{{ $index + 1 }}</p>
+          <h2>{{ book.title }}</h2>
+        </div>
+      }
+    }
+  </div>
+
+  <!-- Pagination control -->
+  <div class="pagination-board__change">
+    <weather-pagination-change />
+  </div>
+</div>

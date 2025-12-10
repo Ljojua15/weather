@@ -1,0 +1,57 @@
+.pagination-change {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+  font-family: sans-serif;
+}
+
+.pagination-change-left-arrow,
+.pagination-change-right-arrow {
+  width: 32px;
+  height: 32px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+  user-select: none;
+  transition: all 0.2s;
+}
+
+.pagination-change-left-arrow:hover,
+.pagination-change-right-arrow:hover {
+  background-color: #eee;
+  border-color: #999;
+}
+
+.pagination-change-numbers {
+  display: flex;
+  gap: 8px;
+}
+
+.pagination-change-numbers span {
+  width: 32px;
+  height: 32px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s;
+}
+
+.pagination-change-numbers span.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.pagination-change-numbers span:hover {
+  background-color: #ddd;
+}
