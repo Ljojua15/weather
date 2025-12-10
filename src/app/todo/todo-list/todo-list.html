@@ -1,0 +1,19 @@
+<div class="todo-list-container">
+  <h3 class="todo-list-title">My Tasks</h3>
+
+  <ul class="todo-list">
+    @for (todo of todos$ | async; track todo.id) {
+      <li class="todo-item">
+        <input type="checkbox" class="todo-check" (click)="change(todo.completed)" />
+
+        <span class="todo-text">{{ todo.description }}</span>
+
+        <div class="todo-actions">
+          <button class="todo-btn update-btn">Update</button>
+
+          <button (click)="deleteTodo(todo.id)" class="todo-btn delete-btn">Delete</button>
+        </div>
+      </li>
+    }
+  </ul>
+</div>
