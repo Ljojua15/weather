@@ -1,11 +1,7 @@
 <div class="pagination-change">
-  <div class="pagination-change-left-arrow">&lt;</div>
-  <div class="pagination-change-numbers">
-    <span class="active">1</span>
-    <span>2</span>
-    <span>3</span>
-    <span>4</span>
-    <span>5</span>
+  <div class="pagination-change-left-arrow" (click)="paginationService.prevPage()">&lt;</div>
+  <div class="pagination-change-numbers" *ngFor="let pages of [].constructor(10); let i = index">
+    <span [class.active]="!i"></span>
   </div>
-  <div class="pagination-change-right-arrow">&gt;</div>
+  <div class="pagination-change-right-arrow" (click)="paginationService.nextPage()">&gt;</div>
 </div>
