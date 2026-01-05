@@ -1,0 +1,121 @@
+<div id="alerts-content" class="tab-content fade-in">
+  <div class="space-y-6">
+    <!-- Active Alerts -->
+    <div class="weather-card rounded-2xl p-6">
+      <h3 class="text-xl font-semibold mb-6">Active Weather Alerts</h3>
+      <div class="space-y-4">
+        <div class="alert-warning rounded-lg p-6">
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 flex items-center justify-center mt-1">
+              <i class="ri-error-warning-line text-white text-2xl"></i>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center justify-between mb-2">
+                <h4 class="text-lg font-semibold text-white">Severe Thunderstorm Warning</h4>
+                <span class="px-3 py-1 bg-red-600 text-white text-xs font-medium rounded-full"
+                  >URGENT</span
+                >
+              </div>
+              <p class="text-gray-100 mb-3">Issued: 2:45 PM EST | Expires: 11:30 PM EST</p>
+              <p class="text-gray-100 mb-4">
+                Severe thunderstorms capable of producing damaging winds in excess of 70 mph, large
+                hail up to quarter size, and heavy rainfall are expected across the New York
+                metropolitan area.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-red-500 text-white text-xs rounded">Damaging Winds</span>
+                <span class="px-2 py-1 bg-red-500 text-white text-xs rounded">Large Hail</span>
+                <span class="px-2 py-1 bg-red-500 text-white text-xs rounded">Heavy Rain</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="alert-watch rounded-lg p-6">
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 flex items-center justify-center mt-1">
+              <i class="ri-alert-line text-white text-2xl"></i>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center justify-between mb-2">
+                <h4 class="text-lg font-semibold text-white">Flash Flood Watch</h4>
+                <span class="px-3 py-1 bg-orange-600 text-white text-xs font-medium rounded-full"
+                  >WATCH</span
+                >
+              </div>
+              <p class="text-gray-100 mb-3">Issued: 1:00 PM EST | Expires: 6:00 AM EST Tomorrow</p>
+              <p class="text-gray-100 mb-4">
+                Heavy rainfall from thunderstorms may cause flash flooding in urban areas, small
+                streams, and low-lying areas. Turn around, don't drown when encountering flooded
+                roads.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-orange-500 text-white text-xs rounded"
+                  >Urban Flooding</span
+                >
+                <span class="px-2 py-1 bg-orange-500 text-white text-xs rounded"
+                  >Stream Flooding</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="alert-advisory rounded-lg p-6">
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 flex items-center justify-center mt-1">
+              <i class="ri-information-line text-white text-2xl"></i>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center justify-between mb-2">
+                <h4 class="text-lg font-semibold text-white">High Wind Advisory</h4>
+                <span class="px-3 py-1 bg-blue-600 text-white text-xs font-medium rounded-full"
+                  >ADVISORY</span
+                >
+              </div>
+              <p class="text-gray-100 mb-3">Issued: 12:00 PM EST | Expires: 8:00 PM EST</p>
+              <p class="text-gray-100 mb-4">
+                Southwest winds 25 to 35 mph with gusts up to 50 mph expected. Secure loose outdoor
+                objects and use caution while driving, especially in high-profile vehicles.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-blue-500 text-white text-xs rounded">High Winds</span>
+                <span class="px-2 py-1 bg-blue-500 text-white text-xs rounded"
+                  >Driving Hazards</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Alert History -->
+    <div class="weather-card rounded-2xl p-6">
+      <h3 class="text-xl font-semibold mb-6">Recent Alert History</h3>
+      <div class="space-y-3">
+        <div class="flex items-center justify-between p-4 bg-gray-800 rounded-lg">
+          <div class="flex items-center space-x-3">
+            <div class="w-6 h-6 flex items-center justify-center">
+              <i class="ri-sun-line text-yellow-400"></i>
+            </div>
+            <div>
+              <p class="font-medium">Heat Advisory</p>
+              <p class="text-sm text-gray-400">Yesterday, 2:00 PM - 8:00 PM</p>
+            </div>
+          </div>
+          <span class="text-xs text-gray-500">Expired</span>
+        </div>
+        <div class="flex items-center justify-between p-4 bg-gray-800 rounded-lg">
+          <div class="flex items-center space-x-3">
+            <div class="w-6 h-6 flex items-center justify-center">
+              <i class="ri-foggy-line text-gray-400"></i>
+            </div>
+            <div>
+              <p class="font-medium">Dense Fog Advisory</p>
+              <p class="text-sm text-gray-400">Dec 1, 5:00 AM - 10:00 AM</p>
+            </div>
+          </div>
+          <span class="text-xs text-gray-500">Expired</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

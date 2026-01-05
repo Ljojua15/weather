@@ -1,0 +1,149 @@
+<div id="current-content" class="tab-content fade-in">
+  <!-- Enhanced Current Weather -->
+  <div class="weather-card rounded-2xl p-6 lg:p-8 mb-8">
+    <div class="flex flex-col lg:flex-row items-center lg:items-start justify-between">
+      <div class="text-center lg:text-left mb-6 lg:mb-0">
+        <h2 class="text-3xl font-semibold mb-2">New York City</h2>
+        <p class="text-gray-400 mb-4">Partly Cloudy with Thunderstorms</p>
+        <div class="flex items-center justify-center lg:justify-start mb-4">
+          <div class="w-20 h-20 flex items-center justify-center bg-gray-800 rounded-full mr-4">
+            <i class="ri-thunderstorms-line text-4xl text-primary"></i>
+          </div>
+          <span class="text-6xl font-light">23°C</span>
+        </div>
+        <p class="text-gray-300 mb-2">Feels like 26°C</p>
+        <p class="text-sm text-gray-400">Last updated: 2 minutes ago</p>
+      </div>
+      <!-- Enhanced Weather Metrics -->
+      <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 w-full lg:w-auto lg:min-w-96">
+        <div class="bg-gray-800 rounded-lg p-4 text-center">
+          <div class="w-8 h-8 flex items-center justify-center mx-auto mb-2">
+            <i class="ri-drop-line text-primary"></i>
+          </div>
+          <p class="text-sm text-gray-400">Humidity</p>
+          <p class="text-lg font-semibold">78%</p>
+          <p class="text-xs text-gray-500">High</p>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-4 text-center">
+          <div class="w-8 h-8 flex items-center justify-center mx-auto mb-2">
+            <i class="ri-windy-line text-primary"></i>
+          </div>
+          <p class="text-sm text-gray-400">Wind</p>
+          <p class="text-lg font-semibold">18 km/h</p>
+          <p class="text-xs text-gray-500">SW</p>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-4 text-center">
+          <div class="w-8 h-8 flex items-center justify-center mx-auto mb-2">
+            <i class="ri-rainy-line text-primary"></i>
+          </div>
+          <p class="text-sm text-gray-400">Precipitation</p>
+          <p class="text-lg font-semibold">85%</p>
+          <p class="text-xs text-gray-500">Heavy</p>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-4 text-center">
+          <div class="w-8 h-8 flex items-center justify-center mx-auto mb-2">
+            <i class="ri-dashboard-line text-primary"></i>
+          </div>
+          <p class="text-sm text-gray-400">Pressure</p>
+          <p class="text-lg font-semibold">998 hPa</p>
+          <p class="text-xs text-gray-500">Falling</p>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-4 text-center">
+          <div class="w-8 h-8 flex items-center justify-center mx-auto mb-2">
+            <i class="ri-temp-cold-line text-primary"></i>
+          </div>
+          <p class="text-sm text-gray-400">Dew Point</p>
+          <p class="text-lg font-semibold">19°C</p>
+          <p class="text-xs text-gray-500">Muggy</p>
+        </div>
+        <div class="bg-gray-800 rounded-lg p-4 text-center">
+          <div class="w-8 h-8 flex items-center justify-center mx-auto mb-2">
+            <i class="ri-cloudy-line text-primary"></i>
+          </div>
+          <p class="text-sm text-gray-400">Cloud Cover</p>
+          <p class="text-lg font-semibold">75%</p>
+          <p class="text-xs text-gray-500">Mostly Cloudy</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Air Quality & Health Information -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+    <!-- Air Quality Index -->
+    <div class="weather-card rounded-2xl p-6">
+      <h3 class="text-xl font-semibold mb-4">Air Quality Index</h3>
+      <div class="text-center mb-6">
+        <div
+          class="air-quality-moderate w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-4"
+        >
+          <span class="text-3xl font-bold text-white">72</span>
+        </div>
+        <p class="text-lg font-semibold">Moderate</p>
+        <p class="text-sm text-gray-400">Acceptable for most people</p>
+      </div>
+      <div class="space-y-3">
+        <div class="flex items-center justify-between">
+          <span class="text-sm text-gray-400">PM2.5</span>
+          <span class="font-medium">25 μg/m³</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-sm text-gray-400">PM10</span>
+          <span class="font-medium">42 μg/m³</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-sm text-gray-400">O₃</span>
+          <span class="font-medium">68 μg/m³</span>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-sm text-gray-400">NO₂</span>
+          <span class="font-medium">35 μg/m³</span>
+        </div>
+      </div>
+    </div>
+    <!-- Pollen Count -->
+    <div class="weather-card rounded-2xl p-6">
+      <h3 class="text-xl font-semibold mb-4">Pollen Forecast</h3>
+      <div class="space-y-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 flex items-center justify-center">
+              <i class="ri-leaf-line text-green-400"></i>
+            </div>
+            <span class="font-medium">Tree Pollen</span>
+          </div>
+          <div class="pollen-high px-3 py-1 rounded-full">
+            <span class="text-sm font-medium text-white">High</span>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 flex items-center justify-center">
+              <i class="ri-plant-line text-green-400"></i>
+            </div>
+            <span class="font-medium">Grass Pollen</span>
+          </div>
+          <div class="pollen-medium px-3 py-1 rounded-full">
+            <span class="text-sm font-medium text-white">Medium</span>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 flex items-center justify-center">
+              <i class="ri-flower-line text-green-400"></i>
+            </div>
+            <span class="font-medium">Weed Pollen</span>
+          </div>
+          <div class="pollen-low px-3 py-1 rounded-full">
+            <span class="text-sm font-medium text-white">Low</span>
+          </div>
+        </div>
+      </div>
+      <div class="mt-6 p-4 bg-gray-800 rounded-lg">
+        <h4 class="font-semibold mb-2">Health Recommendations</h4>
+        <p class="text-sm text-gray-400">
+          Sensitive individuals should limit outdoor activities during peak pollen hours (5-10 AM).
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

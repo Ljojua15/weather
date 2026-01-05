@@ -1,0 +1,181 @@
+<div id="forecasts-content" class="tab-content fade-in">
+  <!-- Extended 14-Day Forecast -->
+  <div class="weather-card rounded-2xl p-6 mb-8">
+    <h3 class="text-xl font-semibold mb-6">14-Day Extended Forecast</h3>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <div class="bg-gray-800 rounded-lg p-4 cursor-pointer hover:bg-gray-750 transition-colors">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <p class="font-medium w-20">Today</p>
+            <div class="w-8 h-8 flex items-center justify-center">
+              <i class="ri-thunderstorms-line text-primary"></i>
+            </div>
+            <p class="text-gray-400">Thunderstorms</p>
+          </div>
+          <div class="text-right">
+            <span class="text-gray-400 mr-2">18°</span>
+            <span class="font-semibold">23°</span>
+          </div>
+        </div>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 cursor-pointer hover:bg-gray-750 transition-colors">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <p class="font-medium w-20">Tomorrow</p>
+            <div class="w-8 h-8 flex items-center justify-center">
+              <i class="ri-rainy-line text-primary"></i>
+            </div>
+            <p class="text-gray-400">Light Rain</p>
+          </div>
+          <div class="text-right">
+            <span class="text-gray-400 mr-2">16°</span>
+            <span class="font-semibold">22°</span>
+          </div>
+        </div>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 cursor-pointer hover:bg-gray-750 transition-colors">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <p class="font-medium w-20">Wed</p>
+            <div class="w-8 h-8 flex items-center justify-center">
+              <i class="ri-sun-cloudy-line text-primary"></i>
+            </div>
+            <p class="text-gray-400">Partly Cloudy</p>
+          </div>
+          <div class="text-right">
+            <span class="text-gray-400 mr-2">19°</span>
+            <span class="font-semibold">27°</span>
+          </div>
+        </div>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 cursor-pointer hover:bg-gray-750 transition-colors">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <p class="font-medium w-20">Thu</p>
+            <div class="w-8 h-8 flex items-center justify-center">
+              <i class="ri-sun-line text-primary"></i>
+            </div>
+            <p class="text-gray-400">Sunny</p>
+          </div>
+          <div class="text-right">
+            <span class="text-gray-400 mr-2">21°</span>
+            <span class="font-semibold">29°</span>
+          </div>
+        </div>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 cursor-pointer hover:bg-gray-750 transition-colors">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <p class="font-medium w-20">Fri</p>
+            <div class="w-8 h-8 flex items-center justify-center">
+              <i class="ri-sun-line text-primary"></i>
+            </div>
+            <p class="text-gray-400">Sunny</p>
+          </div>
+          <div class="text-right">
+            <span class="text-gray-400 mr-2">23°</span>
+            <span class="font-semibold">31°</span>
+          </div>
+        </div>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 cursor-pointer hover:bg-gray-750 transition-colors">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <p class="font-medium w-20">Sat</p>
+            <div class="w-8 h-8 flex items-center justify-center">
+              <i class="ri-cloudy-line text-primary"></i>
+            </div>
+            <p class="text-gray-400">Cloudy</p>
+          </div>
+          <div class="text-right">
+            <span class="text-gray-400 mr-2">20°</span>
+            <span class="font-semibold">26°</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Hourly Charts -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <!-- Temperature Chart -->
+    <div class="weather-card rounded-2xl p-6">
+      <h3 class="text-xl font-semibold mb-4">48-Hour Temperature Trend</h3>
+      <div
+        id="temperature-chart"
+        class="chart-container h-64"
+        style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative"
+        _echarts_instance_="ec_1767613383112"
+      >
+        <div
+          style="
+            position: relative;
+            width: 546px;
+            height: 256px;
+            padding: 0px;
+            margin: 0px;
+            border-width: 0px;
+          "
+        >
+          <canvas
+            data-zr-dom-id="zr_0"
+            width="546"
+            height="256"
+            style="
+              position: absolute;
+              left: 0px;
+              top: 0px;
+              width: 546px;
+              height: 256px;
+              user-select: none;
+              -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+              padding: 0px;
+              margin: 0px;
+              border-width: 0px;
+            "
+          ></canvas>
+        </div>
+        <div class=""></div>
+      </div>
+    </div>
+    <!-- Precipitation Chart -->
+    <div class="weather-card rounded-2xl p-6">
+      <h3 class="text-xl font-semibold mb-4">48-Hour Precipitation Forecast</h3>
+      <div
+        id="precipitation-chart"
+        class="chart-container h-64"
+        style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative"
+        _echarts_instance_="ec_1767613383113"
+      >
+        <div
+          style="
+            position: relative;
+            width: 546px;
+            height: 256px;
+            padding: 0px;
+            margin: 0px;
+            border-width: 0px;
+          "
+        >
+          <canvas
+            data-zr-dom-id="zr_0"
+            width="546"
+            height="256"
+            style="
+              position: absolute;
+              left: 0px;
+              top: 0px;
+              width: 546px;
+              height: 256px;
+              user-select: none;
+              -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+              padding: 0px;
+              margin: 0px;
+              border-width: 0px;
+            "
+          ></canvas>
+        </div>
+        <div class=""></div>
+      </div>
+    </div>
+  </div>
+</div>

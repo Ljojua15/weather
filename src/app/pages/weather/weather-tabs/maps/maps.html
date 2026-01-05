@@ -1,0 +1,83 @@
+<div id="maps-content" class="tab-content fade-in">
+  <div class="weather-card rounded-2xl p-6">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
+      <h3 class="text-xl font-semibold mb-4 sm:mb-0">Interactive Weather Maps</h3>
+      <div class="flex flex-wrap gap-2">
+        <button
+          class="px-4 py-2 bg-primary text-black rounded-full text-sm font-medium !rounded-button whitespace-nowrap"
+        >
+          Precipitation
+        </button>
+        <button
+          class="px-4 py-2 bg-gray-700 text-white rounded-full text-sm font-medium hover:bg-gray-600 transition-colors !rounded-button whitespace-nowrap"
+        >
+          Temperature
+        </button>
+        <button
+          class="px-4 py-2 bg-gray-700 text-white rounded-full text-sm font-medium hover:bg-gray-600 transition-colors !rounded-button whitespace-nowrap"
+        >
+          Wind
+        </button>
+        <button
+          class="px-4 py-2 bg-gray-700 text-white rounded-full text-sm font-medium hover:bg-gray-600 transition-colors !rounded-button whitespace-nowrap"
+        >
+          Clouds
+        </button>
+        <button
+          class="px-4 py-2 bg-gray-700 text-white rounded-full text-sm font-medium hover:bg-gray-600 transition-colors !rounded-button whitespace-nowrap"
+        >
+          Pressure
+        </button>
+      </div>
+    </div>
+    <div
+      class="relative h-96 lg:h-[500px] bg-gray-800 rounded-lg overflow-hidden"
+      style="
+        background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png');
+        background-size: cover;
+        background-position: center;
+      "
+    >
+      <!-- Map Controls -->
+      <div class="absolute top-4 right-4 flex flex-col space-y-2">
+        <button
+          class="w-10 h-10 bg-gray-800 bg-opacity-80 rounded-lg flex items-center justify-center text-white hover:bg-opacity-100 transition-colors"
+        >
+          <i class="ri-add-line"></i>
+        </button>
+        <button
+          class="w-10 h-10 bg-gray-800 bg-opacity-80 rounded-lg flex items-center justify-center text-white hover:bg-opacity-100 transition-colors"
+        >
+          <i class="ri-subtract-line"></i>
+        </button>
+        <button
+          class="w-10 h-10 bg-gray-800 bg-opacity-80 rounded-lg flex items-center justify-center text-white hover:bg-opacity-100 transition-colors"
+        >
+          <i class="ri-fullscreen-line"></i>
+        </button>
+      </div>
+      <!-- Animation Controls -->
+      <div
+        class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center space-x-4 bg-gray-800 bg-opacity-80 rounded-lg px-4 py-2"
+      >
+        <button
+          class="w-8 h-8 flex items-center justify-center text-white hover:text-primary transition-colors"
+        >
+          <i class="ri-play-line"></i>
+        </button>
+        <div class="flex items-center space-x-2">
+          <span class="text-sm text-white">12:00</span>
+          <div class="w-32 h-2 bg-gray-600 rounded-full">
+            <div class="w-1/3 h-full bg-primary rounded-full"></div>
+          </div>
+          <span class="text-sm text-white">18:00</span>
+        </div>
+        <button
+          class="w-8 h-8 flex items-center justify-center text-white hover:text-primary transition-colors"
+        >
+          <i class="ri-speed-line"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
