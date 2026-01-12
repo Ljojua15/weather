@@ -1,7 +1,16 @@
 <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-color">
   <weather-weather-search />
   <weather-weather-alert />
-  <weather-weather-tabs />
-  <weather-current-conditions />
+  <weather-weather-tabs (lengthCount)="tabId($event)" />
+  @if (activeWeatherTab() === WeatherEnum.FORECASTS) {
+    <weather-forecasts />
+  } @else if (activeWeatherTab() === WeatherEnum.MAPS) {
+    <weather-maps />
+  } @else if (activeWeatherTab() === WeatherEnum.ALERTS) {
+    <weather-alerts />
+  } @else {
+    <weather-current-conditions />
+  }
+
   <weather-weather-location />
 </main>
