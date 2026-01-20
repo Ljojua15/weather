@@ -1,4 +1,9 @@
-<weather-layout-header/>
-<router-outlet/>
-<weather-layout-footer/>
-
+<!--<weather-layout-header/>-->
+<!--<router-outlet/>-->
+<!--<weather-layout-footer/>-->
+<div class="infinite" #scrollContainer >
+  @for (people of infiniteUsers(); track $index) {
+    <div class="item">{{people?.name}}</div>
+  }
+  <div #sentinel class="sentinel"></div>
+</div>
