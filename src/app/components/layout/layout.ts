@@ -14,18 +14,20 @@ import { Users } from '../../core/services/users';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map, tap } from 'rxjs';
 import { AsyncPipe, NgIf } from '@angular/common';
+import { InfiniteScroll } from '../../core/directive/infinite-scroll';
 
 @Component({
   selector: 'weather-layout',
-  imports: [],
+  imports: [
+    InfiniteScroll
+  ],
   templateUrl: './layout.html',
   styleUrl: './layout.scss',
 })
-export class Layout implements AfterViewInit, OnDestroy {
+export class Layout {
   @ViewChild('scrollContainer') scroll: ElementRef | undefined;
   private user = inject(Users);
-  @ViewChild('sentinel', { static: true })
-  sentinel!: ElementRef<HTMLDivElement>;
+
 
   private masterData: any[] = [];
 
@@ -44,16 +46,6 @@ export class Layout implements AfterViewInit, OnDestroy {
     ),
   );
 
-  ngAfterViewInit(): void {
-    this.observer = new IntersectionObserver((entries) => {
-      const entry = entries[0];
-      console.log(entry);
-      if (entry.isIntersecting) {
-        this.loadMore();
-      }
-    });
-    this.observer.observe(this.sentinel.nativeElement);
-  }
 
   loadMore() {
     const currentLength = this.infiniteUsers().length;
@@ -63,7 +55,7 @@ export class Layout implements AfterViewInit, OnDestroy {
     }
   }
 
-  ngOnDestroy() {
-    this.observer.disconnect(); // 👈 აუცილებელია
-  }
+
+
+
 }
