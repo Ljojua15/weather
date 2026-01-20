@@ -7,13 +7,15 @@ import { HttpClient } from '@angular/common/http';
 export class Users {
   private apiUrl = 'http://localhost:3000';
 
-  private http = inject(HttpClient);
+  private loginUrl = 'https://techgazzeta.org';
 
+  private http = inject(HttpClient);
 
   getUser$() {
     return this.http.get(`${this.apiUrl}/users`);
   }
 
-
-
+ public logIn(loginData: any) {
+    return this.http.post(`${this.loginUrl}/iam/auth/login`, loginData);
+  }
 }

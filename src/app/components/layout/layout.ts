@@ -15,20 +15,20 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { map, tap } from 'rxjs';
 import { AsyncPipe, NgIf } from '@angular/common';
 import { InfiniteScroll } from '../../core/directive/infinite-scroll';
+import { Login } from '../../auth-components/login/login';
+import { Auth } from '../../core/services/auth';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'weather-layout',
-  imports: [
-    InfiniteScroll
-  ],
+  imports: [InfiniteScroll, Login],
   templateUrl: './layout.html',
   styleUrl: './layout.scss',
 })
 export class Layout {
-  @ViewChild('scrollContainer') scroll: ElementRef | undefined;
   private user = inject(Users);
-
-
+  public auth = inject(Auth);
+  private cookieService = inject(CookieService);
   private masterData: any[] = [];
 
   infiniteUsers = signal<any[]>([]);
@@ -46,7 +46,6 @@ export class Layout {
     ),
   );
 
-
   loadMore() {
     const currentLength = this.infiniteUsers().length;
     if (currentLength < this.masterData.length) {
@@ -54,8 +53,8 @@ export class Layout {
       this.infiniteUsers.update((prev) => [...prev, ...nextBatch]);
     }
   }
-
-
-
-
+  logout() {
+    this.cookieService.delete('access_token','/');
+    this.auth.isLoggedIn.set(false);
+  }
 }

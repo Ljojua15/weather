@@ -36,3 +36,23 @@
   border-radius: 6px;
   color: red;
 }
+.logout-btn {
+  margin: 20px auto;
+  padding: 0.6rem 1.2rem;
+  background-color: #e53935;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+
+  &:hover {
+    background-color: #c62828;
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}

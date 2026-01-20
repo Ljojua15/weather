@@ -1,11 +1,27 @@
 <!--<weather-layout-header/>-->
 <!--<router-outlet/>-->
 <!--<weather-layout-footer/>-->
-<div class="infinite"  weatherInfiniteScroll (addRow)="loadMore()" >
-  @for (people of infiniteUsers(); track $index) {
-    <div class="item">{{people?.name}}</div>
-  }
-  <div  class="sentinel"></div>
-</div>
+<!--<div class="infinite"  weatherInfiniteScroll (addRow)="loadMore()" >-->
+<!--  @for (people of infiniteUsers(); track $index) {-->
+<!--    <div class="item">{{people?.name}}</div>-->
+<!--  }-->
+<!--  <div  class="sentinel"></div>-->
+<!--</div>-->
 
 
+@if (auth.isLoggedIn()) {
+  <div class="infinite"  weatherInfiniteScroll (addRow)="loadMore()" >
+    @for (people of infiniteUsers(); track $index) {
+      <div class="item">{{people?.name}}</div>
+    }
+    <div  class="sentinel"></div>
+  </div>
+  <button class="logout-btn" (click)="logout()">
+    Log out
+  </button>
+
+} @else {
+
+  <weather-login/>
+
+}
