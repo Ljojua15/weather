@@ -1,4 +1,12 @@
-import { Component, computed, inject, OnInit, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  computed,
+  inject,
+  OnInit,
+  signal,
+} from '@angular/core';
 
 import { Users } from '../../core/services/users';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
@@ -12,6 +20,8 @@ import { AbcPipe } from '../../core/pipes/abc-pipe';
 
 @Component({
   selector: 'weather-layout',
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [InfiniteScroll, Login, FormsModule, AbcPipe],
   templateUrl: './layout.html',
   styleUrl: './layout.scss',
@@ -21,7 +31,7 @@ export class Layout implements OnInit {
   public auth = inject(Auth);
   private cookieService = inject(CookieService);
   private masterData: any[] = [];
-
+  private cdr = inject(ChangeDetectorRef);
   public searchName!: string;
   constructor() {}
   infiniteUsers = signal<any[]>([]);
@@ -30,6 +40,8 @@ export class Layout implements OnInit {
   private limit = 10;
 
   public abcClass = false;
+
+  markFor = 'test';
 
   private obsSearchName$ = toObservable(this.$searchName$).pipe(
     debounceTime(500),
@@ -86,4 +98,19 @@ export class Layout implements OnInit {
     }
     return this.infiniteUsers();
   });
+
+  markForCheck() {
+    this.markFor = 'sheicvala';
+    setTimeout(() => {
+      this.markFor = 'მესმედ';
+      this.cdr.detach();
+      console.log('ტექსტი შეიცვალა!');
+      this.cdr.reattach()
+      this.cdr.detectChanges()
+      setTimeout(() => {
+        this.markFor = 'მეოთხედდდდ';
+        this.cdr.markForCheck();
+      },4000)
+    }, 2000);
+  }
 }

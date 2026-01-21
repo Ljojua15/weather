@@ -13,7 +13,7 @@ export class AbcPipe implements PipeTransform {
 
 
 
-    const research = new RegExp(search, 'i');
+    const research = new RegExp(search, 'gi');
 
     const result = value.replace(research, (match) => `<span class="purple-text">${match}</span>`);
 
