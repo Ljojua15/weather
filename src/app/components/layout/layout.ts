@@ -17,14 +17,18 @@ import { Auth } from '../../core/services/auth';
 import { CookieService } from 'ngx-cookie-service';
 import { FormsModule } from '@angular/forms';
 import { AbcPipe } from '../../core/pipes/abc-pipe';
+import { ResolutionModifier } from '../../resolution-modifiers/resolution-modifier/resolution-modifier';
+import { ModifierService } from '../../resolution-modifiers/modifier-service';
+import { Modifier } from '../../resolution-modifiers/modifier';
 
 @Component({
   selector: 'weather-layout',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [InfiniteScroll, Login, FormsModule, AbcPipe],
+  imports: [FormsModule, ResolutionModifier, Modifier],
   templateUrl: './layout.html',
   styleUrl: './layout.scss',
+  providers: [ModifierService],
 })
 export class Layout implements OnInit {
   private user = inject(Users);
@@ -36,6 +40,12 @@ export class Layout implements OnInit {
   constructor() {}
   infiniteUsers = signal<any[]>([]);
   $searchName$ = signal<any>('');
+
+  public mo = inject(ModifierService);
+
+  update(){
+    this.mo.count.update((pre)=> pre +1)
+  };
 
   private limit = 10;
 
@@ -105,12 +115,12 @@ export class Layout implements OnInit {
       this.markFor = 'მესმედ';
       this.cdr.detach();
       console.log('ტექსტი შეიცვალა!');
-      this.cdr.reattach()
-      this.cdr.detectChanges()
+      this.cdr.reattach();
+      this.cdr.detectChanges();
       setTimeout(() => {
         this.markFor = 'მეოთხედდდდ';
         this.cdr.markForCheck();
-      },4000)
+      }, 4000);
     }, 2000);
   }
 }
