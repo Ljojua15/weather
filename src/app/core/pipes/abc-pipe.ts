@@ -12,7 +12,6 @@ export class AbcPipe implements PipeTransform {
     if (!search || !value) return value;
 
 
-    console.log(this.domSanitizer);
 
     const research = new RegExp(search, 'i');
 

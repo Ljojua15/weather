@@ -76,7 +76,7 @@ export class Layout implements OnInit {
     const searchTerm = this.debouncedObservable$().toLowerCase();
 
     if (searchTerm !== '') {
-      return this.infiniteUsers().filter((user) => {
+      return this.masterData.filter((user) => {
         if (user.name.toLowerCase().includes(searchTerm)) {
           this.abcClass = true;
         }
