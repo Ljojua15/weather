@@ -8,10 +8,11 @@ import { Login } from '../../auth-components/login/login';
 import { Auth } from '../../core/services/auth';
 import { CookieService } from 'ngx-cookie-service';
 import { FormsModule } from '@angular/forms';
+import { AbcPipe } from '../../core/pipes/abc-pipe';
 
 @Component({
   selector: 'weather-layout',
-  imports: [InfiniteScroll, Login, FormsModule],
+  imports: [InfiniteScroll, Login, FormsModule, AbcPipe],
   templateUrl: './layout.html',
   styleUrl: './layout.scss',
 })
@@ -28,12 +29,14 @@ export class Layout implements OnInit {
 
   private limit = 10;
 
+  public abcClass = false;
+
   private obsSearchName$ = toObservable(this.$searchName$).pipe(
     debounceTime(500),
-    distinctUntilChanged()
-  )
+    distinctUntilChanged(),
+  );
 
-  private debouncedObservable$ = toSignal(this.obsSearchName$,{initialValue: ''})
+  private debouncedObservable$ = toSignal(this.obsSearchName$, { initialValue: '' });
 
   private observer!: IntersectionObserver;
 
@@ -73,8 +76,11 @@ export class Layout implements OnInit {
     const searchTerm = this.debouncedObservable$().toLowerCase();
 
     if (searchTerm !== '') {
-
       return this.infiniteUsers().filter((user) => {
+        if (user.name.toLowerCase().includes(searchTerm)) {
+          this.abcClass = true;
+        }
+
         return user.name.toLowerCase().includes(searchTerm);
       });
     }
