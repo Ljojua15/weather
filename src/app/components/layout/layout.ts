@@ -20,12 +20,13 @@ import { AbcPipe } from '../../core/pipes/abc-pipe';
 import { ResolutionModifier } from '../../resolution-modifiers/resolution-modifier/resolution-modifier';
 import { ModifierService } from '../../resolution-modifiers/modifier-service';
 import { Modifier } from '../../resolution-modifiers/modifier';
+import { Parent } from '../../defout-onpush/parent/parent';
 
 @Component({
   selector: 'weather-layout',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [FormsModule, ResolutionModifier, Modifier],
+  imports: [FormsModule, ResolutionModifier, Modifier, Parent],
   templateUrl: './layout.html',
   styleUrl: './layout.scss',
   providers: [ModifierService],
@@ -43,9 +44,9 @@ export class Layout implements OnInit {
 
   public mo = inject(ModifierService);
 
-  update(){
-    this.mo.count.update((pre)=> pre +1)
-  };
+  update() {
+    this.mo.count.update((pre) => pre + 1);
+  }
 
   private limit = 10;
 
