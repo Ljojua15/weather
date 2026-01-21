@@ -20,7 +20,6 @@ export class InfiniteScroll implements AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.scrollObserver = new IntersectionObserver(([entry]) => {
-      console.log(entry);
       if (entry.isIntersecting) {
         this.addRow.emit();
       }

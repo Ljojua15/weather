@@ -1,8 +1,8 @@
 import { Component, computed, inject, OnInit, signal } from '@angular/core';
 
 import { Users } from '../../core/services/users';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { map, tap } from 'rxjs';
+import { toObservable, toSignal } from '@angular/core/rxjs-interop';
+import { debounceTime, distinctUntilChanged, map, tap } from 'rxjs';
 import { InfiniteScroll } from '../../core/directive/infinite-scroll';
 import { Login } from '../../auth-components/login/login';
 import { Auth } from '../../core/services/auth';
@@ -27,6 +27,13 @@ export class Layout implements OnInit {
   $searchName$ = signal<any>('');
 
   private limit = 10;
+
+  private obsSearchName$ = toObservable(this.$searchName$).pipe(
+    debounceTime(500),
+    distinctUntilChanged()
+  )
+
+  private debouncedObservable$ = toSignal(this.obsSearchName$,{initialValue: ''})
 
   private observer!: IntersectionObserver;
 
@@ -57,21 +64,18 @@ export class Layout implements OnInit {
   }
 
   onSearch(value: string) {
-    this.$searchName$.set(value);
+    console.log('OK');
   }
 
   ngOnInit(): void {}
 
   usersArray = computed(() => {
-    const searchTerm = this.$searchName$().toLowerCase();
+    const searchTerm = this.debouncedObservable$().toLowerCase();
 
     if (searchTerm !== '') {
-      console.log('ეძებთ:', searchTerm);
 
       return this.infiniteUsers().filter((user) => {
-        const isMatch = user.name.toLowerCase().includes(searchTerm);
-        console.log(`მომხმარებელი: ${user.name}, ემთხვევა: ${isMatch}`);
-        return isMatch;
+        return user.name.toLowerCase().includes(searchTerm);
       });
     }
     return this.infiniteUsers();

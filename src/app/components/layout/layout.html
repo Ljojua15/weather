@@ -22,7 +22,7 @@
   {{ searchName }}
   <div class="infinite" weatherInfiniteScroll (addRow)="loadMore()">
     @for (people of usersArray(); track $index) {
-      <div class="item">{{ people?.name }}</div>
+      <div class="item"><p>{{ people?.id }}</p><p>{{ people?.name }}</p><p>{{ people?.username }}</p><p>{{ people?.age }}</p></div>
     }
     <div class="sentinel"></div>
   </div>
