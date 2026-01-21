@@ -5,7 +5,8 @@ import {
   EventEmitter,
   inject,
   OnDestroy,
-  Output, ViewChild,
+  Output,
+  ViewChild,
 } from '@angular/core';
 
 @Directive({
@@ -14,24 +15,21 @@ import {
 export class InfiniteScroll implements AfterViewInit, OnDestroy {
   @Output() addRow = new EventEmitter();
 
-
-
   private scrollObserver!: IntersectionObserver;
   private el = inject(ElementRef);
 
-
   ngAfterViewInit(): void {
     this.scrollObserver = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting){
+      console.log(entry);
+      if (entry.isIntersecting) {
         this.addRow.emit();
       }
     });
 
     this.scrollObserver.observe(this.el.nativeElement.querySelector('.sentinel'));
-
   }
 
   ngOnDestroy(): void {
-    this.scrollObserver.disconnect()
+    this.scrollObserver.disconnect();
   }
 }

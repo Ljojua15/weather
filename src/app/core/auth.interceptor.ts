@@ -8,7 +8,6 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const apiUrl = inject(API_URL); // ჩვენი ტოკენი
   const token = cookieService.get('access_token'); // აქ ინახება შენი JWT
 
-
   // 1. ვამოწმებთ, რომ მოთხოვნა ნამდვილად ჩვენს API-ზე მიდის
   const isApiRequest = req.url.startsWith(apiUrl);
 
@@ -21,7 +20,6 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
     });
     // 3. ვატანთ შეცვლილ მოთხოვნას
 
-    console.log('authReq', authReq);
     return next(authReq);
   }
 

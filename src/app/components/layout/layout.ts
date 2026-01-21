@@ -1,37 +1,30 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  inject,
-  OnDestroy,
-  signal,
-  ViewChild,
-} from '@angular/core';
-import {LayoutHeader} from '../layout-header/layout-header';
-import {RouterOutlet} from '@angular/router';
-import {LayoutFooter} from '../layout-footer/layout-footer';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
+
 import { Users } from '../../core/services/users';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map, tap } from 'rxjs';
-import { AsyncPipe, NgIf } from '@angular/common';
 import { InfiniteScroll } from '../../core/directive/infinite-scroll';
 import { Login } from '../../auth-components/login/login';
 import { Auth } from '../../core/services/auth';
 import { CookieService } from 'ngx-cookie-service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'weather-layout',
-  imports: [InfiniteScroll, Login],
+  imports: [InfiniteScroll, Login, FormsModule],
   templateUrl: './layout.html',
   styleUrl: './layout.scss',
 })
-export class Layout {
+export class Layout implements OnInit {
   private user = inject(Users);
   public auth = inject(Auth);
   private cookieService = inject(CookieService);
   private masterData: any[] = [];
 
+  public searchName!: string;
+  constructor() {}
   infiniteUsers = signal<any[]>([]);
+  $searchName$ = signal<any>('');
 
   private limit = 10;
 
@@ -48,13 +41,39 @@ export class Layout {
 
   loadMore() {
     const currentLength = this.infiniteUsers().length;
+
     if (currentLength < this.masterData.length) {
       const nextBatch = this.masterData.slice(currentLength, currentLength + this.limit);
       this.infiniteUsers.update((prev) => [...prev, ...nextBatch]);
     }
   }
   logout() {
-    this.cookieService.delete('access_token','/');
+    this.cookieService.delete('access_token', '/');
     this.auth.isLoggedIn.set(false);
   }
+
+  onModelChange(value: string) {
+    this.$searchName$.set(value);
+  }
+
+  onSearch(value: string) {
+    this.$searchName$.set(value);
+  }
+
+  ngOnInit(): void {}
+
+  usersArray = computed(() => {
+    const searchTerm = this.$searchName$().toLowerCase();
+
+    if (searchTerm !== '') {
+      console.log('ეძებთ:', searchTerm);
+
+      return this.infiniteUsers().filter((user) => {
+        const isMatch = user.name.toLowerCase().includes(searchTerm);
+        console.log(`მომხმარებელი: ${user.name}, ემთხვევა: ${isMatch}`);
+        return isMatch;
+      });
+    }
+    return this.infiniteUsers();
+  });
 }

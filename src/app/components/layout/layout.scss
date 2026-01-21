@@ -46,7 +46,9 @@
   font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
 
   &:hover {
     background-color: #c62828;
@@ -54,5 +56,65 @@
 
   &:active {
     transform: scale(0.97);
+  }
+}
+.search-container {
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  width: 320px;
+  padding: 6px;
+
+  border-radius: 999px;
+  background: #ffffff;
+  color: red;
+  border: 1px solid #ddd;
+  font-size: 20px;
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+
+  &:focus-within {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+  }
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 10px 14px;
+  font-size: 14px;
+  border-radius: 999px;
+  background: transparent;
+
+  &::placeholder {
+    color: #9ca3af;
+  }
+}
+
+.search-button {
+  border: none;
+  background: #4f46e5;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  margin: auto;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.2s ease,
+    transform 0.1s ease;
+
+  &:hover {
+    background: #4338ca;
+  }
+
+  &:active {
+    transform: scale(0.95);
   }
 }
