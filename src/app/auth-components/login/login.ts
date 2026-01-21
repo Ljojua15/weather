@@ -2,10 +2,11 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Auth } from '../../core/services/auth';
 import { CookieService } from 'ngx-cookie-service';
+import { CdkCopyToClipboard } from '@angular/cdk/clipboard';
 
 @Component({
   selector: 'weather-login',
-  imports: [FormsModule],
+  imports: [FormsModule, CdkCopyToClipboard],
   templateUrl: './login.html',
   styleUrl: './login.scss',
 })

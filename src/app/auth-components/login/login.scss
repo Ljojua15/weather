@@ -6,7 +6,11 @@
   padding: 3rem;
   background: #f9f9f9;
   min-height: 100vh;
-
+span{
+  width: 200px;
+  height: 30px;
+  background-color: red;
+}
   .auth-form {
     background: #fff;
     padding: 2rem;
@@ -30,6 +34,7 @@
         font-weight: 500;
         font-size: 0.9rem;
         color: #555;
+        cursor: pointer;
       }
 
       input,
