@@ -3,7 +3,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 @Pipe({
   name: 'abc',
-  standalone: true
+  standalone: true,
 })
 export class AbcPipe implements PipeTransform {
   private domSanitizer = inject(DomSanitizer);
@@ -11,9 +11,9 @@ export class AbcPipe implements PipeTransform {
   transform(value: string, search: string): any {
     if (!search || !value) return value;
 
-
-
     const research = new RegExp(search, 'gi');
+
+    console.log(research);
 
     const result = value.replace(research, (match) => `<span class="purple-text">${match}</span>`);
 

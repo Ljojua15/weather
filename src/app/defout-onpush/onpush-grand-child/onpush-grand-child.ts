@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'weather-onpush-grand-child',
@@ -8,4 +8,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   standalone: true,
   changeDetection: ChangeDetectionStrategy.Default,
 })
-export class OnpushGrandChild {}
+export class OnpushGrandChild implements OnInit {
+  public OnpushGrandChild = 'OnpushGrandChild';
+
+  ngOnInit(): void {}
+}

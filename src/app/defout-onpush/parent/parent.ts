@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  inject,
+  OnInit,
+} from '@angular/core';
 import { DefaultChild } from '../defoult-child/defoult-child';
 import { OnpushChild } from '../onpush-child/onpush-child';
 
@@ -10,4 +16,12 @@ import { OnpushChild } from '../onpush-child/onpush-child';
   standalone: true,
   changeDetection: ChangeDetectionStrategy.Default,
 })
-export class Parent {}
+export class Parent implements OnInit {
+  private cdr = inject(ChangeDetectorRef);
+  parent = 'parent';
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.parent = 'parent-sheicvala';
+    }, 2000);
+  }
+}

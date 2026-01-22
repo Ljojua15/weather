@@ -17,16 +17,14 @@ import { Auth } from '../../core/services/auth';
 import { CookieService } from 'ngx-cookie-service';
 import { FormsModule } from '@angular/forms';
 import { AbcPipe } from '../../core/pipes/abc-pipe';
-import { ResolutionModifier } from '../../resolution-modifiers/resolution-modifier/resolution-modifier';
 import { ModifierService } from '../../resolution-modifiers/modifier-service';
-import { Modifier } from '../../resolution-modifiers/modifier';
 import { Parent } from '../../defout-onpush/parent/parent';
 
 @Component({
   selector: 'weather-layout',
   standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [FormsModule, ResolutionModifier, Modifier, Parent],
+  changeDetection: ChangeDetectionStrategy.Default,
+  imports: [FormsModule, Parent],
   templateUrl: './layout.html',
   styleUrl: './layout.scss',
   providers: [ModifierService],

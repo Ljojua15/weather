@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'weather-defoult-grand-child',
@@ -8,4 +8,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   standalone: true,
   changeDetection: ChangeDetectionStrategy.Default,
 })
-export class DefoultGrandChild {}
+export class DefoultGrandChild implements OnInit {
+  public DefoultGrandChild = 'DefoultGrandChild';
+
+  ngOnInit(): void {}
+}
