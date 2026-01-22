@@ -1,0 +1,8 @@
+<div class="users-wrapper">
+  @for (names of prod.petre; track $index) {
+    <div class="user-card">
+      <span class="place">{{ $index + 1 }}</span>
+      <span class="name">{{ names }}</span>
+    </div>
+  }
+</div>

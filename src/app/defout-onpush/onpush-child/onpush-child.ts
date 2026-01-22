@@ -21,7 +21,7 @@ export class OnpushChild implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       this.onpush = 'onpush-sheicvala';
-      this.cdr.markForCheck();
+      // this.cdr.markForCheck();
     }, 3000);
   }
 }

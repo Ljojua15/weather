@@ -19,12 +19,16 @@ import { FormsModule } from '@angular/forms';
 import { AbcPipe } from '../../core/pipes/abc-pipe';
 import { ModifierService } from '../../resolution-modifiers/modifier-service';
 import { Parent } from '../../defout-onpush/parent/parent';
+import { Dependency } from '../../dependency-providers/dependency/dependency';
+import { ResolutionModifier } from '../../resolution-modifiers/resolution-modifier/resolution-modifier';
+import { Modifier } from '../../resolution-modifiers/modifier';
+import { API_URL } from '../../core/injection.token';
 
 @Component({
   selector: 'weather-layout',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.Default,
-  imports: [FormsModule, Parent],
+  imports: [FormsModule, Parent, Dependency, ResolutionModifier, Modifier],
   templateUrl: './layout.html',
   styleUrl: './layout.scss',
   providers: [ModifierService],
@@ -39,6 +43,8 @@ export class Layout implements OnInit {
   constructor() {}
   infiniteUsers = signal<any[]>([]);
   $searchName$ = signal<any>('');
+
+  private url = inject(API_URL);
 
   public mo = inject(ModifierService);
 
@@ -91,7 +97,23 @@ export class Layout implements OnInit {
     console.log('OK');
   }
 
-  ngOnInit(): void {}
+  private test() {
+    let count = 0;
+
+    return function () {
+      count++;
+      return count;
+    };
+  }
+
+  ngOnInit(): void {
+    const fixture = this.test();
+    console.log(fixture());
+    console.log(fixture());
+    console.log(fixture());
+    console.log(fixture());
+    console.log(this.url);
+  }
 
   usersArray = computed(() => {
     const searchTerm = this.debouncedObservable$().toLowerCase();
