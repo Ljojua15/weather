@@ -12,10 +12,10 @@ export class Users {
   private http = inject(HttpClient);
 
   getUser$() {
-    return this.http.get(`${this.apiUrl}/users`);
+    return this.http.get(`${this.apiUrl}/user`);
   }
 
- public logIn(loginData: any) {
+  public logIn(loginData: any) {
     return this.http.post(`${this.loginUrl}/iam/auth/login`, loginData);
   }
 }

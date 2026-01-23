@@ -10,7 +10,7 @@ import {
 
 import { Users } from '../../core/services/users';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
-import { debounceTime, distinctUntilChanged, map, tap } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map, retry, tap, timer } from 'rxjs';
 import { InfiniteScroll } from '../../core/directive/infinite-scroll';
 import { Login } from '../../auth-components/login/login';
 import { Auth } from '../../core/services/auth';
@@ -18,17 +18,16 @@ import { CookieService } from 'ngx-cookie-service';
 import { FormsModule } from '@angular/forms';
 import { AbcPipe } from '../../core/pipes/abc-pipe';
 import { ModifierService } from '../../resolution-modifiers/modifier-service';
+
+import { API_URL } from '../../core/injection.token';
 import { Parent } from '../../defout-onpush/parent/parent';
 import { Dependency } from '../../dependency-providers/dependency/dependency';
-import { ResolutionModifier } from '../../resolution-modifiers/resolution-modifier/resolution-modifier';
-import { Modifier } from '../../resolution-modifiers/modifier';
-import { API_URL } from '../../core/injection.token';
 
 @Component({
   selector: 'weather-layout',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.Default,
-  imports: [FormsModule, Parent, Dependency, ResolutionModifier, Modifier],
+  imports: [FormsModule, InfiniteScroll, AbcPipe, Login, Parent, Dependency],
   templateUrl: './layout.html',
   styleUrl: './layout.scss',
   providers: [ModifierService],
@@ -69,6 +68,14 @@ export class Layout implements OnInit {
 
   userData$ = toSignal(
     this.user.getUser$().pipe(
+      retry({
+        count: 3,
+        delay: (error, retryCount) => {
+          const waitTime = Math.pow(2, retryCount - 1) * 1000;
+          return timer(waitTime);
+        },
+      }),
+
       tap((res: any) => {
         this.masterData = res;
         this.infiniteUsers.set(this.masterData.slice(0, this.limit));
@@ -108,11 +115,6 @@ export class Layout implements OnInit {
 
   ngOnInit(): void {
     const fixture = this.test();
-    console.log(fixture());
-    console.log(fixture());
-    console.log(fixture());
-    console.log(fixture());
-    console.log(this.url);
   }
 
   usersArray = computed(() => {

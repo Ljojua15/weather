@@ -7,7 +7,6 @@ import { Mock } from '../dependency-services/mock';
   imports: [],
   templateUrl: './dependency.html',
   styleUrl: './dependency.scss',
-  providers: [{ provide: Prodaction, useClass: Mock }],
 })
 export class Dependency {
   public prod = inject(Prodaction);

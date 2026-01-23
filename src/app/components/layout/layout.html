@@ -10,33 +10,35 @@
 
 <!--ლოგინი-->
 
-<!--@if (auth.isLoggedIn()) {-->
-<!--  <div class="search-container">-->
-<!--    <input-->
-<!--      type="text"-->
-<!--      placeholder="Search..."-->
-<!--      class="search-input"-->
-<!--      [(ngModel)]="searchName"-->
-<!--      (ngModelChange)="onModelChange($event)"-->
-<!--    />-->
-<!--    <button class="search-button" (click)="onSearch(searchName)">🔍</button>-->
-<!--  </div>-->
-<!--  {{ searchName }}-->
-<!--  <div class="infinite" weatherInfiniteScroll (addRow)="loadMore()">-->
-<!--    @for (people of usersArray(); track $index) {-->
-<!--      <div class="item"><p>{{ people?.id }}</p>-->
-<!--        <p [innerHTML]="people?.name | abc: $searchName$()"></p>-->
-<!--        <p>{{ people?.username }}</p>-->
-<!--        <p>{{ people?.age }}</p></div>-->
-<!--    }-->
-<!--    <div class="sentinel"></div>-->
-<!--  </div>-->
-<!--  <button class="logout-btn" (click)="logout()">Log out</button>-->
+@if (auth.isLoggedIn()) {
+  <div class="search-container">
+    <input
+      type="text"
+      placeholder="Search..."
+      class="search-input"
+      [(ngModel)]="searchName"
+      (ngModelChange)="onModelChange($event)"
+    />
+    <button class="search-button" (click)="onSearch(searchName)">🔍</button>
+  </div>
+  {{ searchName }}
+  <div class="infinite" weatherInfiniteScroll (addRow)="loadMore()">
+    @for (people of usersArray(); track $index) {
+      <div class="item">
+        <p>{{ people?.id }}</p>
+        <p [innerHTML]="people?.name | abc: $searchName$()"></p>
+        <p>{{ people?.username }}</p>
+        <p>{{ people?.age }}</p>
+      </div>
+    }
+    <div class="sentinel"></div>
+  </div>
+  <button class="logout-btn" (click)="logout()">Log out</button>
 
-<!--  <h3 (click)="markForCheck()" >{{markFor}}</h3>-->
-<!--} @else {-->
-<!--  <weather-login />-->
-<!--}-->
+  <h3 (click)="markForCheck()">{{ markFor }}</h3>
+} @else {
+  <weather-login />
+}
 
 <!--რეზპლუშენ მოდიფფაიერები-->
 <!--<div weatherModifier>-->
@@ -47,8 +49,8 @@
 
 <!--ჩეინჯ დეთექშენ სტრატეგიები-->
 
-<!--<weather-parent />-->
+<weather-parent />
 
 <!--დეფენდეენს პროვიდერები-->
 
-<!--<weather-dependency />-->
+<weather-dependency />
